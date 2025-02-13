@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Match Highlights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Grid layout for the videos */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        /* Style for each video container */
+        .highlight-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Video in card */
+        .highlight-card video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay Effect */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .highlight-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            animation: fadeInText 1s ease-in-out;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .overlay-content {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Football Match Highlights</h1>
+
+    <div class="highlights-grid">
+        <!-- Highlight 1 -->
+        <div class="highlight-card">
+            <video src="videoplayback (1).mp4" controls></video>
+            <div class="overlay">
+                <div class="overlay-content">Match 1 - Team A vs Team B</div>
+            </div>
+        </div>
+
+        <!-- Highlight 2 -->
+        <div class="highlight-card">
+            <video src="Germany v Sweden _ 2018 FIFA World Cup _ Match Highlights.mp4" controls></video>
+            <div class="overlay">
+                <div class="overlay-content">Germany vs Sweden</div>
+            </div>
+        </div>
+
+        <!-- Highlight 3 -->
+        <div class="highlight-card">
+            <video src="France v Argentina _ 2018 FIFA World Cup _ Match Highlights.mp4" controls></video>
+            <div class="overlay">
+                <div class="overlay-content">France vs Argentina</div>
+            </div>
+        </div>
+
+        <!-- Highlight 4 -->
+        <div class="highlight-card">
+            <video src="brazil.mp4" controls></video>
+            <div class="overlay">
+                <div class="overlay-content">Brazil Highlights</div>
+            </div>
+        </div>
+
+        <!-- Add more highlights as needed -->
+    </div>
+
+</body>
+
+</html>

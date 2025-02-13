@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Live Updates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 1rem;
+        }
+        .section {
+            background-color: #2e2e2e;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            color: #ffdd57;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ffdd57;
+            padding-bottom: 0.5rem;
+        }
+        .live-updates {
+            font-size: 1.2rem;
+            color: #32cd32;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        #score-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+        #score-container p {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #e6e6e6;
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        .news-feed {
+            list-style: none;
+            padding: 0;
+        }
+        .news-item {
+            font-size: 1.1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #444;
+        }
+        .news-item strong {
+            color: #ffdd57;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Live Score Section -->
+<div class="section" id="live-scores">
+    <h2>Live Scores</h2>
+    <p class="live-updates">Updating live...</p>
+    <div id="score-container">
+        <p><span><strong>Team A</strong></span><span>2 - 1</span><span><strong>Team B</strong></span></p>
+        <p><span><strong>Team C</strong></span><span>1 - 0</span><span><strong>Team D</strong></span></p>
+    </div>
+</div>
+
+<!-- Recent News Section -->
+<div class="section" id="recent-news">
+    <h2>Recent News</h2>
+    <ul class="news-feed">
+        <li class="news-item"><strong>Transfer:</strong> Player X joins Club Y for €50 million.</li>
+        <li class="news-item"><strong>Injury:</strong> Player Z out for 6 weeks due to ankle injury.</li>
+        <li class="news-item"><strong>Club Update:</strong> Club A announces new manager.</li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Highlights & News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease-in-out;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: #FF5722;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #E64A19;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .card:hover img {
+            transform: scale(1.05);
+        }
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .card p {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WELCOME TO NX SPORTS LIVE</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="newsmenu.html">News</a>
+            
+            <a href="highlightmenu.html">Highlights</a>
+            <a href="contactpage.html">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="card">
+            <img src="argvsfrns.jpg" alt="FIFA WORLD CUP 2022 FINAL">
+    
+            <h3>Argentina VS France 2022 Final Match Highlights</h3>
+            <a href="videofarg.html" style="color: #ffffff;">Watch Now!</a>
+            <p>Check out the highlights from the latest Fifa matches. Stunning goals and amazing plays!</p>
+        </div>
+        <div class="card">
+            <img src="urcristiano.jpg" alt="Football Highlight 2">
+            <h3>Player Interviews</h3>
+            <a href="cristianovideo.html" style="color: #ffffff;">Watch Now!</a>
+            <p>Exclusive interviews with your favorite players, sharing  thoughts and experiences of GOATS.</p>
+        </div>
+        <div class="card">
+            <img src="musiala.jpg" alt="Football Highlight 3">
+            <h3>Transfers LIVE: Man City plot €100m bid for Musiala</h3>
+            <p>Stay updated with the latest news in the football world. Transfers, injuries, and more!</p>
+        </div>
+        <div class="card">
+            <img src="fixtures.jpg" alt="Football Highlight 4">
+            <h3>Upcoming Fixtures</h3>
+            <p>Don't miss out on the upcoming matches. Check the schedule and get ready!</p>
+        </div>
+        <div class="card">
+            <img src="manjappada.jpg" alt="Football Highlight 5">
+            <h3>Fan Reactions</h3>
+            <p>Read what fans are saying about the latest matches and player performances.</p>
+        </div>
+        <div class="card">
+            <img src="livestream.jpg" alt="Football Highlight 6">
+            <h3>LIVE NOW!</h3>
+            <a href="apikey.html" style="color: #ffffff;">Watch Now!</a>
+            <p>Dive deep into the analysis of the latest games and tactical breakdowns.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Football Highlights. All rights reserved.</p>
+    </footer>
+</body>
+</html>

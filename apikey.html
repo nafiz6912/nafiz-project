@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Live Scores</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #001f3f, #001020);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 3rem;
+      margin: 20px 0;
+      color: #f8d400;
+    }
+    .scores-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+    }
+    .score-card {
+      width: 350px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #122b50;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .score-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+    }
+    .team {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
+    }
+    .team-logo {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50%;
+      background-size: cover;
+    }
+    .score {
+      font-size: 2rem;
+      color: #f8d400;
+    }
+    .details-button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #f8d400;
+      border: none;
+      color: #122b50;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .details-button:hover {
+      background: #c8b000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Live Football Matches</h1>
+  <div id="scores" class="scores-container"></div>
+
+  <script>
+    const apiKey = "b421a8774db58a8ee7c52d3f3936995b"; 
+    const apiEndpoint = "https://v3.football.api-sports.io/fixtures?live=all";
+
+    // Fetch live scores
+    async function fetchLiveScores() {
+      try {
+        const response = await fetch(apiEndpoint, {
+          method: "GET",
+          headers: {
+            "x-rapidapi-host": "v3.football.api-sports.io",
+            "x-rapidapi-key": apiKey,
+          },
+        });
+
+        if (!response.ok) throw new Error("Failed to fetch data");
+
+        const data = await response.json();
+        displayScores(data.response);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Display scores
+    function displayScores(matches) {
+      const scoresContainer = document.getElementById("scores");
+      scoresContainer.innerHTML = "";
+
+      if (matches.length === 0) {
+        scoresContainer.innerHTML = "<p>No live matches available</p>";
+        return;
+      }
+
+      matches.forEach(match => {
+        const { teams, goals, fixture, league, statistics } = match;
+        const homeTeam = teams.home.name;
+        const awayTeam = teams.away.name;
+        const homeLogo = teams.home.logo || ""; // Placeholder for home logo
+        const awayLogo = teams.away.logo || ""; // Placeholder for away logo
+        const homeScore = goals.home ?? "-";
+        const awayScore = goals.away ?? "-";
+
+        const scoreCard = document.createElement("div");
+        scoreCard.className = "score-card";
+
+        scoreCard.innerHTML = `
+          <div class="team">
+            <div class="team-logo" style="background-image: url('${homeLogo}')"></div>
+            <span>${homeTeam}</span>
+          </div>
+          <div class="score">${homeScore} - ${awayScore}</div>
+          <div class="team">
+            <div class="team-logo" style="background-image: url('${awayLogo}')"></div>
+            <span>${awayTeam}</span>
+          </div>
+          
+        `;
+
+        scoresContainer.appendChild(scoreCard);
+
+        // Animate cards
+        gsap.from(scoreCard, { opacity: 0, y: 50, duration: 0.5 });
+      });
+    }
+
+    // View match details
+    function viewDetails(fixtureId) {
+      window.open(`match-details.html?fixtureId=${fixtureId}`, "_blank");
+    }
+
+    // Fetch scores on load and refresh every 30 seconds
+    fetchLiveScores();
+    setInterval(fetchLiveScores, 30000);
+  </script>
+</body>
+</html>
